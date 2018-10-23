@@ -18,7 +18,6 @@ const STATIC_SRC = [
 const WP_STATIC_SRC = [
     CONSTS.IMG_SRC + '/**',
     CONSTS.AUDIO_SRC + '/**',
-    CONSTS.UPLOAD_SRC + '/**',
     CONSTS.VIDEO_SRC + '/**'
 ];
 const TEMPLATES_SRC = [

@@ -19,7 +19,10 @@ const isDev = CONSTS.NODE_ENV !== 'production';
 const options = {
     entries:  [].concat(CONSTS.JS_ENTRY),
     cache: {},
-    packageCache: {}
+    packageCache: {},
+    paths: [
+        './src/js/modules'
+    ]
 };
 
 if (isDev) {
