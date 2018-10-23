@@ -91,6 +91,17 @@ function copyCss() {
         .pipe(gulp.dest(CONSTS.STATIC_DEST));
 }
 
+function copyCssLR() {
+    return gulp.src(CONSTS.CSS_SRC + '/style.css')
+        .pipe(gulpReplace('$version', CONSTS.VERSION))
+        .pipe(gulpReplace('$name', CONSTS.FULL_NAME))
+        .pipe(gulpReplace('$datetime', getDateTime()))
+        .pipe(gulp.dest(CONSTS.STATIC_DEST))
+        .pipe(gulpLivereload({
+            port: CONSTS.LIVERELOAD_PORT
+        }));
+}
+
 function copyBits() {
     return gulp.src(BITS_SRC,
         {base: '.'})
@@ -107,6 +118,7 @@ gulp.task('copystaticfiles', copyStaticFiles);
 gulp.task('copyviews', copyViews);
 gulp.task('copybits', copyBits);
 gulp.task('copycss', copyCss);
+gulp.task('copycss-lr', copyCssLR);
 gulp.task('copywp', ['clean'], copyWordPress);
 gulp.task('copywps', ['copywp'], copyWordPressStatics);
 gulp.task('copydeploy', [

@@ -26,7 +26,7 @@ let CONSTS = {
     IMG_SRC: 'src/img',
     JS_DEST: THEME + '/js/',
     JS_ENTRY: 'src/js/app.js',
-    JS_OUTPUT: `${OPTIONS.NAME || name}-${version}.min.js`,
+    JS_OUTPUT: `${OPTIONS.NAME || name}-${OPTIONS.VERSION || version}.min.js`,
     JS_SRC: 'src/js/',
     LANGUAGES_SRC: 'src/languages',
     LIVERELOAD_PORT: process.env.LIVERELOAD_PORT || RANDOM_PORT,
@@ -40,9 +40,10 @@ let CONSTS = {
     TEMPLATES_SRC:'src/templates/',
     TEXT_SRC: 'src/text',
     UPLOAD_SRC: 'src/upload',
-    VERSION: version,
+    VERSION: OPTIONS.VERSION || version,
     VIDEO_SRC: 'src/video',
     WP_SRC: '.contrib/wordpress',
+    WP_CSS_SRC: 'src/css/style.css',
     WPCONFIG_SRC: 'src/wp-config.php'
 };
 

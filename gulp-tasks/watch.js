@@ -18,6 +18,7 @@ function watch() {
             CONSTS.VIDEO_SRC + '/**/*'
         ], ['copystaticfiles']);
     const watchSass = gulp.watch([CONSTS.SASS_SRC + '/**/*'], ['sass-watch']);
+    const watchCss = gulp.watch([CONSTS.WP_CSS_SRC], ['copycss-lr']);
     const watchConfig = gulp.watch([CONSTS.WPCONFIG_SRC], ['copyconfig']);
     const watchTemplates = gulp.watch([CONSTS.TEMPLATES_SRC + '/**/*'], ['copyviews']);
     const watchJs = gulp.watch([CONSTS.GULPFILE, CONSTS.GULP_TASKS + '/**/*.js', CONSTS.JS_SRC + '/**/*.js'],
@@ -28,6 +29,7 @@ function watch() {
         watchPublic,
         watchJs,
         watchSass,
+        watchCss,
         watchConfig,
         watchTemplates
     ].forEach((w) => {
