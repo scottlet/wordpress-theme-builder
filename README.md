@@ -1,4 +1,4 @@
-###Wordpress Theme Builder
+### Wordpress Theme Builder
 
 Requires global gulp and gulp-cli to be installed
 
@@ -8,7 +8,7 @@ If you have homebrew installed on OSX this is as simple as `brew install node`.
 
 If you don't have homebrew on OSX, visit http://brew.sh
 
-To run the demo, additionally check out https://github.com/scottbert/wordpress-theme-builder-src then copy into the root of this folder as "src"
+To run the demo, additionally check out [wordpress-theme-builder-src](https://github.com/scottbert/wordpress-theme-builder-src) then copy into the root of this folder as "src"
 
 Do ```npm install```
 
