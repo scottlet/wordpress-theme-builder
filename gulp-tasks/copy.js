@@ -15,11 +15,7 @@ const STATIC_SRC = [
     CONSTS.LANGUAGES_SRC + '/**',
     CONSTS.VIDEO_SRC + '/**'
 ];
-const WP_STATIC_SRC = [
-    CONSTS.IMG_SRC + '/**',
-    CONSTS.AUDIO_SRC + '/**',
-    CONSTS.VIDEO_SRC + '/**'
-];
+
 const TEMPLATES_SRC = [
     CONSTS.TEMPLATES_SRC + '/**'
 ];
@@ -31,10 +27,6 @@ const BITS_SRC = [
 
 function copyWordPress() {
     return copyFilesFn(CONSTS.WP_SRC + '/**', CONSTS.RUN_DEST, CONSTS.WP_SRC, true);
-}
-
-function copyWordPressStatics() {
-    return copyFilesFn(WP_STATIC_SRC, CONSTS.RUN_DEST, CONSTS.SRC, true);
 }
 
 function copyViews() {
@@ -109,6 +101,12 @@ function copyBits() {
         .pipe(gulp.dest(CONSTS.STATIC_DEST));
 }
 
+function copyFavicon() {
+    return gulp.src(CONSTS.FAVICON,
+        {base: CONSTS.IMG_SRC})
+        .pipe(gulp.dest(CONSTS.CONTENT));
+}
+
 function copyConfig() {
     return copyFilesFn(CONSTS.WPCONFIG_SRC, CONSTS.RUN_DEST, CONSTS.SRC, true);
 }
@@ -118,20 +116,29 @@ gulp.task('copyviews', copyViews);
 gulp.task('copybits', copyBits);
 gulp.task('copycss', copyCss);
 gulp.task('copycss-lr', copyCssLR);
+gulp.task('copyfavicon', copyFavicon);
 gulp.task('copywp', ['clean'], copyWordPress);
-gulp.task('copywps', ['copywp'], copyWordPressStatics);
 gulp.task('copydeploy', [
     'clean',
     'copywp',
-    'copywps',
     'copystaticfiles',
     'copyviews',
     'copybits',
     'copycss',
     'copyconfig',
+    'copyfavicon',
     'sass',
     'browserify'
 ], copyDeploy);
 gulp.task('copydeployt', copyDeploy);
 gulp.task('copyconfig', copyConfig);
-gulp.task('copy', ['clean', 'copywp', 'copywps', 'copystaticfiles', 'copyviews', 'copybits', 'copycss', 'copyconfig']);
+gulp.task('copy', [
+    'clean',
+    'copywp',
+    'copystaticfiles',
+    'copyviews',
+    'copybits',
+    'copyfavicon',
+    'copycss',
+    'copyconfig'
+]);
