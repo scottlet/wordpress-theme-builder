@@ -1,6 +1,6 @@
 {
   "name": "wordpress-theme-builder",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "devDependencies": {
     "autoprefixer": "^9.2.1",
