@@ -15,6 +15,13 @@ const OPTIONS = require('../src/options');
 let CONSTS = {
     APPSERVER_PORT: process.env.PORT || APPSERVER_PORT,
     AUDIO_SRC: 'src/audio',
+    BREAKPOINTS: {
+        OLD_MOBILE: 320,
+        MOBILE: 767,
+        SMALL_TABLET: 600,
+        TABLET: 979,
+        SMALL_DESKTOP: 1440
+    },
     BROWSER_CONFIG: ['> 2%', 'last 1 version', 'IE 11', 'not dead'],
     BUILD_DEST: 'build/',
     BUILD_DIST: 'dist/',

@@ -10,6 +10,7 @@ const gulpNotify = require('gulp-notify');
 const gulpPlumber = require('gulp-plumber');
 const gulpPostcss = require('gulp-postcss');
 const gulpRename = require('gulp-rename');
+const gulpReplace = require('gulp-replace');
 const gulpSass = require('gulp-sass');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const nodeNormalizeScss = require('node-normalize-scss').includePaths;
@@ -38,6 +39,11 @@ function styles() {
         .pipe(gulpPlumber({errorHandler: gulpNotify.onError(error => `Styles Error: ${error.message}`)}))
         .pipe(gulpSass(sassOptions).on('error', gulpSass.logError))
         .pipe(gulpPostcss(processors))
+        .pipe(gulpReplace('__oldMobile__', CONSTS.BREAKPOINTS.OLD_MOBILE))
+        .pipe(gulpReplace('__mobile__', CONSTS.BREAKPOINTS.MOBILE))
+        .pipe(gulpReplace('__smalltablet__', CONSTS.BREAKPOINTS.SMALL_TABLET))
+        .pipe(gulpReplace('__tablet__', CONSTS.BREAKPOINTS.TABLET))
+        .pipe(gulpReplace('__smalldesktop__', CONSTS.BREAKPOINTS.SMALL_DESKTOP))
         .pipe(gulpIf(isDev, gulpSourcemaps.write()))
         .pipe(gulpRename(`${CONSTS.NAME}-${CONSTS.VERSION}.min.css`))
         .pipe(gulp.dest(CONSTS.CSS_DEST))
