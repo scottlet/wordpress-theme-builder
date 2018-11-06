@@ -26,6 +26,10 @@ const sassOptions = {
     ]
 };
 
+function rename(path) {
+    path.basename = path.basename.replace('$name', CONSTS.NAME).replace('$version', CONSTS.VERSION) + '.min';
+}
+
 function styles() {
     const processors = [
         autoprefixer({browsers: CONSTS.BROWSER_CONFIG}),
@@ -45,7 +49,7 @@ function styles() {
         .pipe(gulpReplace('__tablet__', CONSTS.BREAKPOINTS.TABLET))
         .pipe(gulpReplace('__smalldesktop__', CONSTS.BREAKPOINTS.SMALL_DESKTOP))
         .pipe(gulpIf(isDev, gulpSourcemaps.write()))
-        .pipe(gulpRename(`${CONSTS.NAME}-${CONSTS.VERSION}.min.css`))
+        .pipe(gulpRename(rename))
         .pipe(gulp.dest(CONSTS.CSS_DEST))
         .pipe(gulpIf(isDev, gulpLivereload({port: CONSTS.LIVERELOAD_PORT})));
 }
