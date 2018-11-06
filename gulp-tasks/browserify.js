@@ -20,8 +20,6 @@ const isDev = CONSTS.NODE_ENV !== 'production';
 
 const entries = glob.sync(CONSTS.JS_SRC + '*.js');
 
-console.log(entries);
-
 function addToBrowserify(entry) {
     const options = {
         entries:  [entry],
@@ -34,8 +32,6 @@ function addToBrowserify(entry) {
 
     const name = entry.replace('$name', CONSTS.NAME).replace('$version', CONSTS.VERSION)
         .replace(/.*\/([\w$\-.]+).js/, '$1');
-
-    console.log('name', name);
 
     const uglifyOptions = {
         compress: {
