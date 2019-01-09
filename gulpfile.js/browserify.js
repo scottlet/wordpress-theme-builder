@@ -2,6 +2,7 @@
 
 const browserify = require('browserify');
 const CONSTS = require('./CONSTS');
+const merge2 = require('merge2');
 const glob = require('glob');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
@@ -76,12 +77,14 @@ function addToBrowserify(entry) {
     b.on('update', bundle);
     b.on('log', fancyLog);
     b.on('error', fancyLog);
-    bundle();
+
+    return bundle();
 }
 
-function createbundle(cb) {
-    entries.forEach(addToBrowserify);
-    cb();
+function createJSbundles() {
+    const tasks = entries.map(addToBrowserify);
+
+    return merge2(tasks);
 }
 
-module.exports = createbundle;
+module.exports = createJSbundles;

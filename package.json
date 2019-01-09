@@ -41,5 +41,9 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.11.0"
+  },
+  "dependencies": {
+    "event-stream": "^4.0.1",
+    "merge2": "^1.2.3"
   }
 }
