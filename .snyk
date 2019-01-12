@@ -1,0 +1,42 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.3
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-CHOWNR-73502:
+    - watchify > chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: unfixable
+        expires: '2019-02-11T06:08:14.540Z'
+    - gulp > glob-watcher > chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: unfixable
+        expires: '2019-02-11T06:08:14.540Z'
+    - gulp-nodemon > nodemon > chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: unfixable
+        expires: '2019-02-11T06:08:14.540Z'
+    - gulp-nodemon > gulp > glob-watcher > chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: unfixable
+        expires: '2019-02-11T06:08:14.540Z'
+  'npm:chownr:20180731':
+    - watchify > chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: unfixable
+        expires: '2019-02-11T06:08:14.540Z'
+    - gulp > glob-watcher > chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: unfixable
+        expires: '2019-02-11T06:08:14.540Z'
+    - gulp-nodemon > nodemon > chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: unfixable
+        expires: '2019-02-11T06:08:14.540Z'
+    - gulp-nodemon > gulp > glob-watcher > chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: unfixable
+        expires: '2019-02-11T06:08:14.540Z'
+  'npm:braces:20180219':
+    - watchify > anymatch > micromatch > braces:
+        reason: unfixable
+        expires: '2019-02-11T06:08:14.540Z'
+    - watchify > chokidar > anymatch > micromatch > braces:
+        reason: unfixable
+        expires: '2019-02-11T06:08:14.540Z'
+  'npm:unzipper:20180415':
+    - gulp-unzip > unzipper:
+        reason: unfixable
+        expires: '2019-02-11T06:08:14.540Z'
+patch: {}

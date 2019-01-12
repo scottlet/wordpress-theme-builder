@@ -29,3 +29,5 @@ Optionally, modify ```src/options.js``` to change the name of your theme.
 Then ```gulp``` to run the livereload local server ( http://localhost:9000 )
 
 Fill out the usual WordPress configuration information, log in and change your theme to the Wordpress Theme Builder theme (or whatever you called yours :))
+
+[![Known Vulnerabilities](https://snyk.io/test/github/scottbert/wordpress-theme-builder/badge.svg?targetFile=package.json)](https://snyk.io/test/github/scottbert/wordpress-theme-builder?targetFile=package.json)

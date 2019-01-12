@@ -10,7 +10,11 @@ const THEME = `${CONTENT}themes/wp-theme/`;
 
 const {name, version} = require('../package.json');
 
-const OPTIONS = require('../src/options');
+let OPTIONS = {};
+
+try {
+    OPTIONS = require('../src/options');
+} catch (ex) {} //eslint-disable-line
 
 let CONSTS = {
     APPSERVER_PORT: process.env.PORT || APPSERVER_PORT,
@@ -47,7 +51,7 @@ let CONSTS = {
     SRC: 'src',
     STATIC_DEST: THEME + '/',
     TEMPLATES_DEST:THEME + '/',
-    TEMPLATES_SRC:'src/templates/',
+    TEMPLATES_SRC:'src/templates',
     TEXT_SRC: 'src/text',
     THEME: THEME,
     UPLOAD_SRC: 'src/upload',
@@ -58,6 +62,6 @@ let CONSTS = {
     WPCONFIG_SRC: 'src/wp-config.php'
 };
 
-CONSTS = Object.assign(CONSTS, OPTIONS);
+CONSTS = Object.assign(CONSTS, OPTIONS || {});
 
 module.exports = CONSTS;

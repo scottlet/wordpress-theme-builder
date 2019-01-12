@@ -54,5 +54,4 @@ function styles() {
         .pipe(gulpIf(isDev, gulpLivereload({port: CONSTS.LIVERELOAD_PORT})));
 }
 
-gulp.task('sass', ['clean'], styles);
-gulp.task('sass-watch', styles);
+module.exports = styles;
