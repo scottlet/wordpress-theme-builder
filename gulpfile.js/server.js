@@ -24,7 +24,7 @@ const staticOptions = {
     index: false
 };
 
-function runPHP() {
+function runPHP(cb) {
     gulpConnectPHP.server({
         port: CONSTS.APPSERVER_PORT,
         hostname: '0.0.0.0',
@@ -42,9 +42,10 @@ function runPHP() {
             return collection;
         }
     });
+    cb();
 }
 
-function makeServer() {
+function makeServer(cb) {
     const port = CONSTS.GULP_PORT;
 
     gulpConnect.server({
@@ -68,10 +69,9 @@ function makeServer() {
             ];
         }
     });
+    cb();
 
     fancyLog('server http://127.0.0.1:' + port);
 }
 
-gulp.task('php', ['copy'], runPHP);
-gulp.task('makeserver', ['copy', 'browserify', 'sass', 'watch'], makeServer);
-gulp.task('server', ['build', 'watch', 'php', 'sass', 'makeserver']);
+module.exports = gulp.series(runPHP, makeServer);

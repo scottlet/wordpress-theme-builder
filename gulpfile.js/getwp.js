@@ -17,6 +17,4 @@ function move() {
         .pipe(gulp.dest('.run/'));
 }
 
-gulp.task('getwp', ['downloadwp'], move);
-gulp.task('movewp', move);
-gulp.task('downloadwp', download);
+module.exports = gulp.series(download, move);

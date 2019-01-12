@@ -20,8 +20,8 @@ const TEMPLATES_SRC = [
     CONSTS.TEMPLATES_SRC + '/**'
 ];
 const BITS_SRC = [
-    CONSTS.TEXT_SRC + '/*',
-    CONSTS.IMG_SRC + '/screenshot.png'
+    CONSTS.IMG_SRC + '/screenshot.png',
+    CONSTS.TEXT_SRC + '/**'
 
 ];
 
@@ -96,7 +96,6 @@ function copyCssLR() {
 function copyBits() {
     return gulp.src(BITS_SRC,
         {base: '.'})
-        .pipe(gulpChanged(CONSTS.STATIC_DEST))
         .pipe(gulpRename({dirname:''}))
         .pipe(gulp.dest(CONSTS.STATIC_DEST));
 }
@@ -112,33 +111,25 @@ function copyConfig() {
 }
 
 gulp.task('copystaticfiles', copyStaticFiles);
-gulp.task('copyviews', copyViews);
 gulp.task('copybits', copyBits);
 gulp.task('copycss', copyCss);
 gulp.task('copycss-lr', copyCssLR);
 gulp.task('copyfavicon', copyFavicon);
-gulp.task('copywp', ['clean'], copyWordPress);
-gulp.task('copydeploy', [
-    'clean',
-    'copywp',
-    'copystaticfiles',
-    'copyviews',
-    'copybits',
-    'copycss',
-    'copyconfig',
-    'copyfavicon',
-    'sass',
-    'browserify'
-], copyDeploy);
-gulp.task('copydeployt', copyDeploy);
+gulp.task('copywp', copyWordPress);
 gulp.task('copyconfig', copyConfig);
-gulp.task('copy', [
-    'clean',
-    'copywp',
-    'copystaticfiles',
-    'copyviews',
-    'copybits',
-    'copyfavicon',
-    'copycss',
-    'copyconfig'
-]);
+
+module.exports = {
+    copy: gulp.series(
+        gulp.parallel(
+            copyConfig,
+            copyCss,
+            copyFavicon,
+            copyStaticFiles,
+            copyViews,
+            copyWordPress
+        ),
+        copyBits
+    ),
+    copyDeploy: copyDeploy,
+    copyViews: copyViews
+};

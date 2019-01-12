@@ -1,10 +1,9 @@
 'use strict';
 
 const fs = require('fs');
-const gulp = require('gulp');
 const fancyLog = require('fancy-log');
 
-function check() {
+function check(cb) {
     if (!fs.existsSync('.run')) {
         fancyLog(`\n\n
              ╔═══════════════════════════════════════════════════════════╗
@@ -16,7 +15,7 @@ function check() {
         process.exit();
     }
 
-    return gulp;
+    cb();
 }
 
-gulp.task('check', check);
+module.exports = check;

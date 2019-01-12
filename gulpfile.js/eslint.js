@@ -13,6 +13,4 @@ function lint() {
         .pipe(gulpESLint.format());
 }
 
-gulp.task('eslint', ['check'], lint);
-
-gulp.task('eslint-lr', lint);
+module.exports = lint;
