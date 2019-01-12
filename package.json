@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "gulp",
-    "test": "eslint"
+    "test": "gulp eslint"
   },
   "private": false,
   "dependencies": {
