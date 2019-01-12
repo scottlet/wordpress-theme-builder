@@ -26,6 +26,10 @@
     "name": "Scott van Looy",
     "email": "scott@ojoho.io"
   },
+  "scripts": {
+    "start": "gulp",
+    "test": "eslint"
+  }
   "private": false,
   "dependencies": {
     "autoprefixer": "^9.4.4",
