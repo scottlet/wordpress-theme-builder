@@ -20,7 +20,7 @@
   "contributors": "Scott van Looy",
   "homepage": "https://github.com/scottbert/wordpress-theme-builder",
   "engines": {
-    "node": 10
+    "node": ">=9.10.0"
   },
   "author": {
     "name": "Scott van Looy",
