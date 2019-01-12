@@ -10,7 +10,7 @@ const THEME = `${CONTENT}themes/wp-theme/`;
 
 const {name, version} = require('../package.json');
 
-let OPTIONS;
+let OPTIONS = {};
 
 try {
     OPTIONS = require('../src/options');
