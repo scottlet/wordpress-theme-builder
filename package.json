@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "gulp",
-    "test": "gulp eslint"
+    "test": "snyk test && gulp eslint"
   },
   "private": false,
   "dependencies": {
@@ -39,6 +39,7 @@
     "css-mqpacker": "^7.0.0",
     "csswring": "^7.0.0",
     "del": "^3.0.0",
+    "event-stream": "^4.0.1",
     "gulp": "^4.0.0",
     "gulp-changed": "^3.2.0",
     "gulp-connect": "^5.7.0",
@@ -62,6 +63,7 @@
     "gulp-zip": "^4.2.0",
     "http-proxy-middleware": "^0.19.1",
     "http-rewrite-middleware": "^0.1.6",
+    "merge2": "^1.2.3",
     "mocha": "^5.2.0",
     "node-normalize-scss": "^8.0.0",
     "postcss-assets": "^5.0.0",
@@ -69,8 +71,9 @@
     "require-dir": "^1.2.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
-    "watchify": "^3.11.0",
-    "event-stream": "^4.0.1",
-    "merge2": "^1.2.3"
+    "watchify": "^3.11.0"
+  },
+  "devDependencies": {
+    "snyk": "^1.122.0"
   }
 }
