@@ -1,6 +1,6 @@
 {
   "name": "wordpress-theme-builder",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "keywords": [
     "wordpress",
     "theme",
@@ -32,7 +32,7 @@
   },
   "private": false,
   "dependencies": {
-    "autoprefixer": "^9.4.4",
+    "autoprefixer": "^9.4.5",
     "browserify": "^16.2.3",
     "connect-cors": "^0.5.6",
     "connect-livereload": "^0.6.1",
