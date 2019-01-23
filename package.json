@@ -32,7 +32,7 @@
   },
   "private": false,
   "dependencies": {
-    "autoprefixer": "^9.4.5",
+    "autoprefixer": "^9.4.6",
     "browserify": "^16.2.3",
     "connect-cors": "^0.5.6",
     "connect-livereload": "^0.6.1",
@@ -73,6 +73,6 @@
     "watchify": "^3.11.0"
   },
   "devDependencies": {
-    "snyk": "^1.122.0"
+    "snyk": "^1.122.3"
   }
 }
