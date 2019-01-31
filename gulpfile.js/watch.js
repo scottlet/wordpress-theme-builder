@@ -9,7 +9,7 @@ function watchers(cb) {
     gulpLivereload.listen({
         port: CONSTS.LIVERELOAD_PORT
     });
-    const watchCopiedTemplates = watch(CONSTS.TEMPLATES_DEST + '/**/*', series(gulpLivereload.reload));
+    const watchCopiedTemplates = watch(CONSTS.TEMPLATES_DEST + '/**/*.php', series(gulpLivereload.reload));
     const watchPublic = watch(
         [
             CONSTS.IMG_SRC + '/**/*',
