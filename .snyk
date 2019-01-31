@@ -17,26 +17,26 @@ ignore:
         expires: '2019-02-11T06:08:14.540Z'
   'npm:chownr:20180731':
     - watchify > chokidar > fsevents > node-pre-gyp > tar > chownr:
-        reason: unfixable
-        expires: '2019-02-11T06:08:14.540Z'
+        reason: None given
+        expires: '2019-02-22T04:24:26.891Z'
     - gulp > glob-watcher > chokidar > fsevents > node-pre-gyp > tar > chownr:
-        reason: unfixable
-        expires: '2019-02-11T06:08:14.540Z'
+        reason: None given
+        expires: '2019-02-22T04:24:26.891Z'
     - gulp-nodemon > nodemon > chokidar > fsevents > node-pre-gyp > tar > chownr:
-        reason: unfixable
-        expires: '2019-02-11T06:08:14.540Z'
+        reason: None given
+        expires: '2019-02-22T04:24:26.891Z'
     - gulp-nodemon > gulp > glob-watcher > chokidar > fsevents > node-pre-gyp > tar > chownr:
-        reason: unfixable
-        expires: '2019-02-11T06:08:14.540Z'
+        reason: None given
+        expires: '2019-02-22T04:24:26.891Z'
   'npm:braces:20180219':
     - watchify > anymatch > micromatch > braces:
-        reason: unfixable
-        expires: '2019-02-11T06:08:14.540Z'
+        reason: None given
+        expires: '2019-02-22T04:24:26.891Z'
     - watchify > chokidar > anymatch > micromatch > braces:
-        reason: unfixable
-        expires: '2019-02-11T06:08:14.540Z'
+        reason: None given
+        expires: '2019-02-22T04:24:26.891Z'
   'npm:unzipper:20180415':
     - gulp-unzip > unzipper:
-        reason: unfixable
-        expires: '2019-02-11T06:08:14.540Z'
+        reason: None given
+        expires: '2019-02-22T04:24:26.892Z'
 patch: {}
