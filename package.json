@@ -73,6 +73,6 @@
     "watchify": "^3.11.0"
   },
   "devDependencies": {
-    "snyk": "^1.126.0"
+    "snyk": "^1.132.2"
   }
 }
