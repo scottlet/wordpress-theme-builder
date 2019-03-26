@@ -29,7 +29,7 @@ function runPHP(cb) {
         port: CONSTS.APPSERVER_PORT,
         hostname: '0.0.0.0',
         base: CONSTS.RUN_DEST,
-        debug: true,
+        debug: false,
         configCallback: function _configCallback(type, collection) {
             if (type === gulpConnectPHP.OPTIONS_SPAWN_OBJ) {
                 collection.env = Object.assign({

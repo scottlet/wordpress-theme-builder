@@ -26,6 +26,19 @@ const sassOptions = {
     ]
 };
 
+function buildSassVariables(breakpoints) {
+    var b;
+    var c = {};
+
+    for (b in breakpoints) {
+        c['$' + b.toLowerCase().replace(/_/g, '')] = breakpoints[b] + 'px';
+    }
+
+    return c;
+}
+
+const sassVariables = buildSassVariables(CONSTS.BREAKPOINTS);
+
 function rename(path) {
     path.basename = path.basename.replace('$name', CONSTS.NAME).replace('$version', CONSTS.VERSION) + '.min';
 }
@@ -41,13 +54,7 @@ function styles() {
     return gulp.src(CONSTS.SASS_SRC + '/**/*.scss')
         .pipe(gulpPlumber({errorHandler: gulpNotify.onError(error => `Styles Error: ${error.message}`)}))
         .pipe(gulpIf(isDev, gulpSourcemaps.init()))
-        .pipe(gulpSassVariables({
-            $oldmob: `${CONSTS.BREAKPOINTS.OLD_MOBILE}px`,
-            $mob: `${CONSTS.BREAKPOINTS.MOBILE}px`,
-            $smalltablet: `${CONSTS.BREAKPOINTS.SMALL_TABLET}px`,
-            $tablet: `${CONSTS.BREAKPOINTS.TABLET}px`,
-            $smalldesktop: `${CONSTS.BREAKPOINTS.SMALL_DESKTOP}px`
-        }))
+        .pipe(gulpSassVariables(sassVariables))
         .pipe(gulpSass(sassOptions).on('error', gulpSass.logError))
         .pipe(gulpPostcss(processors))
         .pipe(gulpIf(isDev, gulpSourcemaps.write()))
