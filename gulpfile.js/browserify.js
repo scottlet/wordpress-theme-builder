@@ -9,7 +9,6 @@ const gulpIf = require('gulp-if');
 const gulpLivereload = require('gulp-livereload');
 const gulpNotify = require('gulp-notify');
 const gulpPlumber = require('gulp-plumber');
-const gulpReplace = require('gulp-replace');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpUglify = require('gulp-uglify');
 const fancyLog = require('fancy-log');
@@ -60,11 +59,6 @@ function addToBrowserify(entry) {
             .pipe(gulpPlumber({errorHandler: gulpNotify.onError(error => `JS Bundle Error: ${error.message}`)}))
             .pipe(vinylSourceStream(name + CONSTS.JS_OUTPUT))
             .pipe(vinylBuffer())
-            .pipe(gulpReplace('$$oldMobile$$', CONSTS.BREAKPOINTS.OLD_MOBILE))
-            .pipe(gulpReplace('$$mobile$$', CONSTS.BREAKPOINTS.MOBILE))
-            .pipe(gulpReplace('$$smalltablet$$', CONSTS.BREAKPOINTS.SMALL_TABLET))
-            .pipe(gulpReplace('$$tablet$$', CONSTS.BREAKPOINTS.TABLET))
-            .pipe(gulpReplace('$$smalldesktop$$', CONSTS.BREAKPOINTS.SMALL_DESKTOP))
             .pipe(gulpSourcemaps.init({loadMaps: true}))
             .pipe(gulpUglify(uglifyOptions))
             .pipe(gulpIf(isDev, gulpSourcemaps.write()))
