@@ -13,7 +13,7 @@ const {name, version} = require('../package.json');
 let OPTIONS = {};
 
 try {
-    OPTIONS = require('../src/options');
+    OPTIONS = require('../src/options.js');
 } catch (ex) {} //eslint-disable-line
 
 let CONSTS = {
