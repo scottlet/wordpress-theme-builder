@@ -1,6 +1,6 @@
 {
   "name": "wordpress-theme-builder",
-  "version": "3.2.1",
+  "version": "3.2.3",
   "keywords": [
     "wordpress",
     "theme",
@@ -38,8 +38,8 @@
     "connect-livereload": "^0.6.1",
     "css-mqpacker": "^7.0.0",
     "csswring": "^7.0.0",
-    "del": "^4.1.0",
-    "gulp": "^4.0.0",
+    "del": "^4.1.1",
+    "gulp": "^4.0.1",
     "gulp-changed": "^3.2.0",
     "gulp-connect": "^5.7.0",
     "gulp-connect-php": "1.0.3",
@@ -64,7 +64,7 @@
     "http-proxy-middleware": "^0.19.1",
     "http-rewrite-middleware": "^0.1.6",
     "merge2": "^1.2.3",
-    "mocha": "^6.1.2",
+    "mocha": "^6.1.4",
     "node-normalize-scss": "^8.0.0",
     "postcss-assets": "^5.0.0",
     "pre-commit-package-version": "^1.0.7",
@@ -74,6 +74,6 @@
     "watchify": "^3.11.1"
   },
   "devDependencies": {
-    "snyk": "^1.148.0"
+    "snyk": "^1.158.0"
   }
 }
