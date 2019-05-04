@@ -43,6 +43,8 @@ function rename(path) {
     path.basename = path.basename.replace('$name', CONSTS.NAME).replace('$version', CONSTS.VERSION) + '.min';
 }
 
+gulpSass.compiler = require('node-sass');
+
 function styles() {
     const processors = [
         autoprefixer({browsers: CONSTS.BROWSER_CONFIG}),
