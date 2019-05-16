@@ -1,11 +1,10 @@
 'use strict';
 
-const {sync} = require('del');
+const del = require('del');
 const CONSTS = require('./CONSTS');
 
-function clean(cb) {
-    sync(['contrib', CONSTS.STATIC_DEST, CONSTS.BUILD_DEST, CONSTS.BUILD_DIST]);
-    cb();
+function clean() {
+    return del(['contrib', CONSTS.STATIC_DEST, CONSTS.BUILD_DEST, CONSTS.BUILD_DIST]);
 }
 
 module.exports = clean;

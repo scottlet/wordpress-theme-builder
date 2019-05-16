@@ -1,6 +1,6 @@
 {
   "name": "wordpress-theme-builder",
-  "version": "3.2.6",
+  "version": "3.3.0",
   "keywords": [
     "wordpress",
     "theme",
@@ -75,6 +75,6 @@
     "watchify": "^3.11.1"
   },
   "devDependencies": {
-    "snyk": "^1.163.3"
+    "snyk": "^1.165.0"
   }
 }
