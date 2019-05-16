@@ -1,6 +1,6 @@
 'use strict';
 
-const gulp = require('gulp');
+const {src, dest, series} = require('gulp');
 const gulpDownload = require('gulp-download');
 const gulpUnzip = require('gulp-unzip');
 
@@ -9,12 +9,12 @@ const WP_URL = 'https://wordpress.org/latest.zip';
 function download() {
     return gulpDownload(WP_URL)
         .pipe(gulpUnzip())
-        .pipe(gulp.dest('./contrib'));
+        .pipe(dest('./contrib'));
 }
 
 function move() {
-    return gulp.src('./contrib/wordpress/**')
-        .pipe(gulp.dest('.run/'));
+    return src('./contrib/wordpress/**')
+        .pipe(dest('.run/'));
 }
 
-module.exports = gulp.series(download, move);
+module.exports = series(download, move);

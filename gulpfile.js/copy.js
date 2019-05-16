@@ -1,7 +1,7 @@
 'use strict';
 
 const CONSTS = require('./CONSTS');
-const gulp = require('gulp');
+const {src, dest, series, parallel} = require('gulp');
 const gulpChanged = require('gulp-changed');
 const gulpIf = require('gulp-if');
 const gulpLivereload = require('gulp-livereload');
@@ -46,28 +46,34 @@ function copyStaticFiles() {
     return copyFilesFn(STATIC_SRC, CONSTS.STATIC_DEST, CONSTS.SRC, true);
 }
 
-function copyFilesFn(src, dest, base, reload) {
-    return gulp.src(src, {base: base || '.'})
-        .pipe(gulpChanged(dest))
-        .pipe(gulp.dest(dest))
+function copyFilesFn(gsrc, gdest, base, reload) {
+    return src(gsrc, {base: base || '.'})
+        .pipe(gulpChanged(gdest))
+        .pipe(dest(gdest))
         .pipe(gulpIf(reload, gulpLivereload({
             port: CONSTS.LIVERELOAD_PORT
         })));
 }
 
-function copyFilesReplaceFn(src, dest, base, reload, rp) {
-    return gulp.src(src, {base: base || '.'})
+function copyFilesReplaceFn(gsrc, gdest, base, reload, rp) {
+    return src(gsrc, {base: base || '.'})
         .pipe(gulpReplace(rp.name, rp.value))
-        .pipe(gulpChanged(dest))
-        .pipe(gulp.dest(dest))
+        .pipe(gulpChanged(gdest))
+        .pipe(dest(gdest))
         .pipe(gulpIf(reload, gulpLivereload({
             port: CONSTS.LIVERELOAD_PORT
         })));
 }
 
 function getDateTime() {
-    return new Date().toString()
-        .replace(/ [GUTMC].*?$/gi, '');
+    return new Date().toLocaleString('en', {
+        weekday: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        month: 'short',
+        hour: 'numeric',
+        minute: 'numeric'
+    });
 }
 
 function copyDeploy() {
@@ -75,52 +81,52 @@ function copyDeploy() {
 }
 
 function copyCss() {
-    return gulp.src(CONSTS.CSS_SRC + '/style.css')
+    return src(CONSTS.CSS_SRC + '/style.css')
         .pipe(gulpReplace('$version', CONSTS.VERSION))
         .pipe(gulpReplace('$name', CONSTS.FULL_NAME))
         .pipe(gulpReplace('$datetime', getDateTime()))
-        .pipe(gulp.dest(CONSTS.STATIC_DEST));
+        .pipe(dest(CONSTS.STATIC_DEST));
 }
 
 function copyCssLR() {
-    return gulp.src(CONSTS.CSS_SRC + '/style.css')
+    return src(CONSTS.CSS_SRC + '/style.css')
         .pipe(gulpReplace('$version', CONSTS.VERSION))
         .pipe(gulpReplace('$name', CONSTS.FULL_NAME))
         .pipe(gulpReplace('$datetime', getDateTime()))
-        .pipe(gulp.dest(CONSTS.STATIC_DEST))
+        .pipe(dest(CONSTS.STATIC_DEST))
         .pipe(gulpLivereload({
             port: CONSTS.LIVERELOAD_PORT
         }));
 }
 
 function copyBits() {
-    return gulp.src(BITS_SRC,
+    return src(BITS_SRC,
         {base: '.'})
         .pipe(gulpRename({dirname:''}))
-        .pipe(gulp.dest(CONSTS.STATIC_DEST));
+        .pipe(dest(CONSTS.STATIC_DEST));
 }
 
 function copyFavicon() {
-    return gulp.src(CONSTS.FAVICON,
+    return src(CONSTS.FAVICON,
         {base: CONSTS.IMG_SRC})
-        .pipe(gulp.dest(CONSTS.CONTENT));
+        .pipe(dest(CONSTS.CONTENT));
 }
 
 function copyConfig() {
     return copyFilesFn(CONSTS.WPCONFIG_SRC, CONSTS.RUN_DEST, CONSTS.SRC, true);
 }
 
-gulp.task('copystaticfiles', copyStaticFiles);
-gulp.task('copybits', copyBits);
-gulp.task('copycss', copyCss);
-gulp.task('copycss-lr', copyCssLR);
-gulp.task('copyfavicon', copyFavicon);
-gulp.task('copywp', copyWordPress);
-gulp.task('copyconfig', copyConfig);
+// gulp.task('copystaticfiles', copyStaticFiles);
+// gulp.task('copybits', copyBits);
+// gulp.task('copycss', copyCss);
+// gulp.task('copycss-lr', copyCssLR);
+// gulp.task('copyfavicon', copyFavicon);
+// gulp.task('copywp', copyWordPress);
+// gulp.task('copyconfig', copyConfig);
 
 module.exports = {
-    copy: gulp.series(
-        gulp.parallel(
+    copy: series(
+        parallel(
             copyConfig,
             copyCss,
             copyFavicon,
@@ -130,6 +136,9 @@ module.exports = {
         ),
         copyBits
     ),
-    copyDeploy: copyDeploy,
-    copyViews: copyViews
+    copyDeploy,
+    copyViews,
+    copyCssLR,
+    copyConfig,
+    copyStaticFiles
 };

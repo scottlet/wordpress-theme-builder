@@ -12,6 +12,10 @@ const {name, version} = require('../package.json');
 
 let OPTIONS = {};
 
+if (!process.env.LIVERELOAD_PORT) {
+    process.env.LIVERELOAD_PORT = RANDOM_PORT;
+}
+
 try {
     OPTIONS = require('../src/options.js');
 } catch (ex) {} //eslint-disable-line
@@ -43,7 +47,7 @@ let CONSTS = {
     JS_OUTPUT: '.min.js',
     JS_SRC: 'src/js/',
     LANGUAGES_SRC: 'src/languages',
-    LIVERELOAD_PORT: process.env.LIVERELOAD_PORT || RANDOM_PORT,
+    LIVERELOAD_PORT: process.env.LIVERELOAD_PORT,
     NAME: OPTIONS.NAME || name,
     NODE_ENV: process.env.NODE_ENV,
     RUN_DEST: '.run/',

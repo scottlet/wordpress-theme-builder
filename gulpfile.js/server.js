@@ -3,7 +3,7 @@
 const connectCORS = require('connect-cors');
 const connectLivereload = require('connect-livereload');
 const fancyLog = require('fancy-log');
-const gulp = require('gulp');
+const {series} = require('gulp');
 const gulpConnect = require('gulp-connect');
 const gulpConnectPHP = require('gulp-connect-php');
 const httpProxyMiddleware = require('http-proxy-middleware');
@@ -74,4 +74,4 @@ function makeServer(cb) {
     fancyLog('server http://127.0.0.1:' + port);
 }
 
-module.exports = gulp.series(runPHP, makeServer);
+module.exports = series(runPHP, makeServer);
