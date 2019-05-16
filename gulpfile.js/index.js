@@ -25,6 +25,7 @@ module.exports = {
     deploy,
     build,
     browserify,
+    eslint,
     getwp,
     copyviews: copyViews
 };
