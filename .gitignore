@@ -36,4 +36,4 @@ build/
 dist/
 src/
 .run/
-.contrib/
+contrib/
