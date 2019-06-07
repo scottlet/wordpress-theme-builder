@@ -20,12 +20,13 @@ const deploy = series(build, copyDeploy, zip);
 const server = series(build, watch, buildServer);
 
 module.exports = {
-    default: server,
-    server,
-    deploy,
-    build,
     browserify,
+    build,
+    copyviews: copyViews,
+    default: server,
+    deploy,
     eslint,
     getwp,
-    copyviews: copyViews
+    sass,
+    server
 };
