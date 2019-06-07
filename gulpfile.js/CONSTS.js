@@ -30,7 +30,6 @@ let CONSTS = {
         TABLET: 979,
         SMALL_DESKTOP: 1440
     },
-    BROWSER_CONFIG: ['> 2%', 'last 1 version', 'IE 11', 'not dead'],
     BUILD_DEST: 'build/',
     BUILD_DIST: 'dist/',
     CONTENT: CONTENT,
