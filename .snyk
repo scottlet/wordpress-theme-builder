@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.3
+version: v1.13.5
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   SNYK-JS-CHOWNR-73502:
@@ -39,4 +39,34 @@ ignore:
     - gulp-unzip > unzipper:
         reason: None given
         expires: '2019-02-22T04:24:26.892Z'
-patch: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - gulp-sass > node-sass > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - node-sass > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - gulp-spawn-mocha > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - mocha > yargs-unparser > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - postcss-assets > assets > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - node-sass > sass-graph > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - gulp-eslint > eslint > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - http-proxy-middleware > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - gulp-eslint > eslint > table > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - gulp-sass > node-sass > sass-graph > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - node-sass > gaze > globule > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - postcss-assets > assets > async > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - gulp-eslint > eslint > inquirer > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
+    - gulp-sass > node-sass > gaze > globule > lodash:
+        patched: '2019-07-04T09:01:25.196Z'
