@@ -52,7 +52,7 @@ gulpSass.compiler = require('node-sass');
 
 function styles() {
     const processors = [
-        autoprefixer({browsers: CONSTS.BROWSER_CONFIG}),
+        autoprefixer(),
         cssMqpacker,
         csswring,
         postcssAssets
