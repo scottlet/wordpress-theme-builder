@@ -35,14 +35,16 @@ function runPHP(cb) {
                 collection.env = Object.assign({
                     APPLICATION_ENV: 'development'
                 }, process.env);
+                cb();
 
                 return collection;
             }
 
+            cb();
+
             return collection;
         }
     });
-    cb();
 }
 
 function makeServer(cb) {
