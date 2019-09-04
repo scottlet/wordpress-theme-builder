@@ -61,7 +61,7 @@
     "gulp-unzip": "^1.1.0",
     "gulp-wait": "0.0.2",
     "gulp-zip": "^5.0.0",
-    "http-proxy-middleware": "^0.19.1",
+    "http-proxy-middleware": "^0.20.0",
     "http-rewrite-middleware": "^0.1.6",
     "merge2": "^1.2.3",
     "mocha": "^6.2.0",
