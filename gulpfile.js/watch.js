@@ -23,7 +23,7 @@ function watchers(cb) {
     const watchSass = watch(CONSTS.SASS_SRC + '/**/*', parallel(sass));
     const watchCss = watch(CONSTS.WP_CSS_SRC, parallel(copyCssLR));
     const watchConfig = watch(CONSTS.WPCONFIG_SRC, parallel(copyConfig));
-    const watchTemplates = watch(CONSTS.TEMPLATES_SRC + '/**/*', parallel(copyViews));
+    const watchTemplates = watch(CONSTS.TEMPLATES_SRC + '/**/*', copyViews);
     const watchJs = watch([CONSTS.GULPFILE, CONSTS.GULP_TASKS + '/**/*.js', CONSTS.JS_SRC + '/**/*.js'],
         parallel(eslint));
 
