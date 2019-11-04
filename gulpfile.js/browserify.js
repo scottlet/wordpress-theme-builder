@@ -10,7 +10,6 @@ const gulpLivereload = require('gulp-livereload');
 const gulpNotify = require('gulp-notify');
 const gulpPlumber = require('gulp-plumber');
 const gulpSourcemaps = require('gulp-sourcemaps');
-const gulpUglify = require('gulp-uglify');
 const fancyLog = require('fancy-log');
 const vinylBuffer = require('vinyl-buffer');
 const vinylSourceStream = require('vinyl-source-stream');
@@ -33,18 +32,15 @@ function addToBrowserify(entry) {
     const name = entry.replace('$name', CONSTS.NAME).replace('$version', CONSTS.VERSION)
         .replace(/.*\/([\w$\-.]+).js/, '$1');
 
-    const uglifyOptions = {
-        compress: {
-            drop_console: true //eslint-disable-line
-        }
-    };
+    const b = browserify(options);
 
     if (isDev) {
-        options.plugin = [watchify];
-        delete uglifyOptions.compress.drop_console;
+        b.transform('babelify', { presets: ['@babel/preset-env'], sourceMaps: true });
+        b.plugin(watchify, { delay: 10 });
+    } else {
+        b.transform('babelify', { presets: ['@babel/preset-env'] });
+        b.plugin('tinyify', { flat: false });
     }
-
-    const b = browserify(options);
 
     function doLR() {
         if (process.env.OVERRIDE_LR === 'true') {
@@ -60,7 +56,6 @@ function addToBrowserify(entry) {
             .pipe(vinylSourceStream(name + CONSTS.JS_OUTPUT))
             .pipe(vinylBuffer())
             .pipe(gulpSourcemaps.init({loadMaps: true}))
-            .pipe(gulpUglify(uglifyOptions))
             .pipe(gulpIf(isDev, gulpSourcemaps.write()))
             .pipe(gulp.dest(CONSTS.JS_DEST))
             .pipe(gulpIf(doLR(), gulpLivereload({
