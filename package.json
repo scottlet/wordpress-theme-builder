@@ -79,7 +79,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-env": "^7.7.4",
     "babelify": "^10.0.0",
     "snyk": "^1.241.0",
     "tinyify": "^2.5.2"
