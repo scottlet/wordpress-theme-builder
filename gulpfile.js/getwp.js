@@ -1,6 +1,4 @@
-'use strict';
-
-const {src, dest, series} = require('gulp');
+const { src, dest, series } = require('gulp');
 const gulpDownload = require('gulp-download');
 const gulpUnzip = require('gulp-unzip');
 

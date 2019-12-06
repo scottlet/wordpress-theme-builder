@@ -1,5 +1,3 @@
-'use strict';
-
 const LIVERELOAD = 35679;
 const RANDOM_PORT = LIVERELOAD + parseInt(Math.random() * 100); // Randomize port for livereload.
 const APPSERVER_PORT = 8888;
@@ -8,7 +6,7 @@ const SERVER_PORT = 9000;
 const CONTENT = '.run/wp-content/';
 const THEME = `${CONTENT}themes/wp-theme/`;
 
-const {name, version} = require('../package.json');
+const { name, version } = require('../package.json');
 
 let OPTIONS = {};
 
@@ -32,17 +30,17 @@ let CONSTS = {
     },
     BUILD_DEST: 'build/',
     BUILD_DIST: 'dist/',
-    CONTENT: CONTENT,
-    CSS_DEST: THEME + 'css/',
+    CONTENT,
+    CSS_DEST: `${THEME}css/`,
     CSS_SRC: 'src/css/',
     FAVICON: 'src/images/favicon.ico',
     FONT_SRC: 'src/fonts',
     GULP_PORT: process.env.GULP_PORT || SERVER_PORT,
     GULP_TASKS: 'gulp-tasks',
     GULPFILE: 'gulpfile.js',
-    IMG_DEST: THEME + '/img/',
+    IMG_DEST: `${THEME}/img/`,
     IMG_SRC: 'src/images',
-    JS_DEST: THEME + '/js/',
+    JS_DEST: `${THEME}/js/`,
     JS_OUTPUT: '.min.js',
     JS_SRC: 'src/js/',
     LANGUAGES_SRC: 'src/languages',
@@ -52,11 +50,11 @@ let CONSTS = {
     RUN_DEST: '.run/',
     SASS_SRC: 'src/sass',
     SRC: 'src',
-    STATIC_DEST: THEME + '/',
-    TEMPLATES_DEST:THEME + '/',
-    TEMPLATES_SRC:'src/templates',
+    STATIC_DEST: `${THEME}/`,
+    TEMPLATES_DEST: `${THEME}/`,
+    TEMPLATES_SRC: 'src/templates',
     TEXT_SRC: 'src/text',
-    THEME: THEME,
+    THEME,
     UPLOAD_SRC: 'src/upload',
     VERSION: OPTIONS.VERSION || version,
     VIDEO_SRC: 'src/video',

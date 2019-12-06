@@ -1,9 +1,7 @@
-'use strict';
-
 const connectCORS = require('connect-cors');
 const connectLivereload = require('connect-livereload');
 const fancyLog = require('fancy-log');
-const {series} = require('gulp');
+const { series } = require('gulp');
 const gulpConnect = require('gulp-connect');
 const gulpConnectPHP = require('gulp-connect-php');
 const httpProxyMiddleware = require('http-proxy-middleware');
@@ -48,11 +46,11 @@ function runPHP(cb) {
 }
 
 function makeServer(cb) {
-    const port = CONSTS.GULP_PORT;
+    const gulpPort = CONSTS.GULP_PORT;
 
     gulpConnect.server({
         root: '.run',
-        port,
+        gulpPort,
         host: '0.0.0.0',
         debug: true,
         middleware: () => {
@@ -65,7 +63,7 @@ function makeServer(cb) {
                 serveStatic('.run/wp-content/', staticOptions),
                 serveStatic('.run/wp-includes/', staticOptions),
                 httpProxyMiddleware('/', {
-                    target: url.parse('http://127.0.0.1:' + CONSTS.APPSERVER_PORT)
+                    target: url.parse(`http://127.0.0.1:${CONSTS.APPSERVER_PORT}`)
                 }),
                 connectCORS()
             ];
@@ -73,7 +71,7 @@ function makeServer(cb) {
     });
     cb();
 
-    fancyLog('server http://127.0.0.1:' + port);
+    fancyLog(`server http://127.0.0.1:${gulpPort}`);
 }
 
 module.exports = series(runPHP, makeServer);
