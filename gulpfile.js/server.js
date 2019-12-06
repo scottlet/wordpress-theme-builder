@@ -50,7 +50,7 @@ function makeServer(cb) {
 
     gulpConnect.server({
         root: '.run',
-        gulpPort,
+        port: gulpPort,
         host: '0.0.0.0',
         debug: true,
         middleware: () => {
