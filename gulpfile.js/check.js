@@ -1,5 +1,3 @@
-'use strict';
-
 const fs = require('fs');
 const fancyLog = require('fancy-log');
 

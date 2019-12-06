@@ -1,5 +1,3 @@
-'use strict';
-
 const del = require('del');
 const CONSTS = require('./CONSTS');
 

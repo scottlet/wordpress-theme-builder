@@ -1,7 +1,5 @@
-'use strict';
-
 const CONSTS = require('./CONSTS');
-const {src, dest, series, parallel} = require('gulp');
+const { src, dest, series, parallel } = require('gulp');
 const gulpChanged = require('gulp-changed');
 const gulpIf = require('gulp-if');
 const gulpLivereload = require('gulp-livereload');
@@ -9,24 +7,24 @@ const gulpRename = require('gulp-rename');
 const gulpReplace = require('gulp-replace');
 
 const STATIC_SRC = [
-    CONSTS.IMG_SRC + '/**',
-    CONSTS.AUDIO_SRC + '/**',
-    CONSTS.FONT_SRC + '/**',
-    CONSTS.LANGUAGES_SRC + '/**',
-    CONSTS.VIDEO_SRC + '/**'
+    `${CONSTS.IMG_SRC}/**`,
+    `${CONSTS.AUDIO_SRC}/**`,
+    `${CONSTS.FONT_SRC}/**`,
+    `${CONSTS.LANGUAGES_SRC}/**`,
+    `${CONSTS.VIDEO_SRC}/**`
 ];
 
 const TEMPLATES_SRC = [
-    CONSTS.TEMPLATES_SRC + '/**'
+    `${CONSTS.TEMPLATES_SRC}/**`
 ];
 const BITS_SRC = [
-    CONSTS.IMG_SRC + '/screenshot.png',
-    CONSTS.TEXT_SRC + '/**'
+    `${CONSTS.IMG_SRC}/screenshot.png`,
+    `${CONSTS.TEXT_SRC}/**`
 
 ];
 
 function copyWordPress() {
-    return copyFilesFn(CONSTS.WP_SRC + '/**', CONSTS.RUN_DEST, CONSTS.WP_SRC, true);
+    return copyFilesFn(`${CONSTS.WP_SRC}/**`, CONSTS.RUN_DEST, CONSTS.WP_SRC, true);
 }
 
 function copyViews() {
@@ -46,8 +44,8 @@ function copyStaticFiles() {
     return copyFilesFn(STATIC_SRC, CONSTS.STATIC_DEST, CONSTS.SRC, true);
 }
 
-function copyFilesFn(gsrc, gdest, base, reload) {
-    return src(gsrc, {base: base || '.'})
+function copyFilesFn(gsrc, gdest, base = '.', reload) {
+    return src(gsrc, { base })
         .pipe(gulpChanged(gdest))
         .pipe(dest(gdest))
         .pipe(gulpIf(reload, gulpLivereload({
@@ -55,8 +53,8 @@ function copyFilesFn(gsrc, gdest, base, reload) {
         })));
 }
 
-function copyFilesReplaceFn(gsrc, gdest, base, reload, rp) {
-    return src(gsrc, {base: base || '.'})
+function copyFilesReplaceFn(gsrc, gdest, base = '.', reload, rp) {
+    return src(gsrc, { base })
         .pipe(gulpReplace(rp.name, rp.value))
         .pipe(gulpChanged(gdest))
         .pipe(dest(gdest))
@@ -77,11 +75,11 @@ function getDateTime() {
 }
 
 function copyDeploy() {
-    return copyFilesFn(CONSTS.STATIC_DEST + '**', CONSTS.BUILD_DEST, CONSTS.STATIC_DEST);
+    return copyFilesFn(`${CONSTS.STATIC_DEST}**`, CONSTS.BUILD_DEST, CONSTS.STATIC_DEST);
 }
 
 function copyCss() {
-    return src(CONSTS.CSS_SRC + '/style.css')
+    return src(`${CONSTS.CSS_SRC}/style.css`)
         .pipe(gulpReplace('$version', CONSTS.VERSION))
         .pipe(gulpReplace('$name', CONSTS.FULL_NAME))
         .pipe(gulpReplace('$datetime', getDateTime()))
@@ -89,7 +87,7 @@ function copyCss() {
 }
 
 function copyCssLR() {
-    return src(CONSTS.CSS_SRC + '/style.css')
+    return src(`${CONSTS.CSS_SRC}/style.css`)
         .pipe(gulpReplace('$version', CONSTS.VERSION))
         .pipe(gulpReplace('$name', CONSTS.FULL_NAME))
         .pipe(gulpReplace('$datetime', getDateTime()))
@@ -101,28 +99,20 @@ function copyCssLR() {
 
 function copyBits() {
     return src(BITS_SRC,
-        {base: '.'})
-        .pipe(gulpRename({dirname:''}))
+        { base: '.' })
+        .pipe(gulpRename({ dirname: '' }))
         .pipe(dest(CONSTS.STATIC_DEST));
 }
 
 function copyFavicon() {
     return src(CONSTS.FAVICON,
-        {base: CONSTS.IMG_SRC})
+        { base: CONSTS.IMG_SRC })
         .pipe(dest(CONSTS.CONTENT));
 }
 
 function copyConfig() {
     return copyFilesFn(CONSTS.WPCONFIG_SRC, CONSTS.RUN_DEST, CONSTS.SRC, true);
 }
-
-// gulp.task('copystaticfiles', copyStaticFiles);
-// gulp.task('copybits', copyBits);
-// gulp.task('copycss', copyCss);
-// gulp.task('copycss-lr', copyCssLR);
-// gulp.task('copyfavicon', copyFavicon);
-// gulp.task('copywp', copyWordPress);
-// gulp.task('copyconfig', copyConfig);
 
 module.exports = {
     copy: series(
