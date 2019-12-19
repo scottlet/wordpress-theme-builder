@@ -83,7 +83,7 @@
     "postcss-preset-env": "^6.7.0",
     "pre-commit-package-version": "^1.0.7",
     "require-dir": "^1.2.0",
-    "snyk": "^1.262.0",
+    "snyk": "^1.263.0",
     "tinyify": "^2.5.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
