@@ -1,0 +1,3 @@
+[submodule "src"]
+	path = src
+	url = git@github.com:scottbert/wordpress-theme-builder-src.git
