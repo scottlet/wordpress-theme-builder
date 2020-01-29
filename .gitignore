@@ -34,6 +34,6 @@ npm-debug.log
 app/
 build/
 dist/
-src/
+#src/
 .run/
 contrib/
