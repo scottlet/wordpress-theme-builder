@@ -1,6 +1,6 @@
 {
   "name": "wordpress-theme-builder",
-  "version": "3.5.7",
+  "version": "3.5.8",
   "keywords": [
     "wordpress",
     "theme",
@@ -35,8 +35,8 @@
   },
   "private": false,
   "dependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "autoprefixer": "^9.7.4",
     "babelify": "^10.0.0",
     "browserify": "^16.5.0",
@@ -86,7 +86,7 @@
     "postcss-preset-env": "^6.7.0",
     "pre-commit-package-version": "^1.0.7",
     "require-dir": "^1.2.0",
-    "snyk": "^1.286.1",
+    "snyk": "^1.288.0",
     "tinyify": "^2.5.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
