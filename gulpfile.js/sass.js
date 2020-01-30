@@ -1,4 +1,3 @@
-const autoprefixer = require('autoprefixer');
 const cssMqpacker = require('css-mqpacker');
 const csswring = require('csswring');
 const { src, dest } = require('gulp');
@@ -48,7 +47,6 @@ gulpSass.compiler = require('node-sass');
 
 function styles() {
     const processors = [
-        autoprefixer(),
         cssMqpacker,
         csswring,
         postcssAssets,

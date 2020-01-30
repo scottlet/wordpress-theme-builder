@@ -5,8 +5,6 @@ const glob = require('glob');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
 const gulpLivereload = require('gulp-livereload');
-const gulpNotify = require('gulp-notify');
-const gulpPlumber = require('gulp-plumber');
 const gulpReplace = require('gulp-replace');
 const fancyLog = require('fancy-log');
 const vinylBuffer = require('vinyl-buffer');
@@ -27,6 +25,10 @@ function addToBrowserify(entry) {
         ]
     };
 
+    if (isDev) {
+        options.debug = true;
+    }
+
     const name = entry.replace('$name', CONSTS.NAME).replace('$version', CONSTS.VERSION)
         .replace(/.*\/([\w$\-.]+).js/, '$1');
 
@@ -45,12 +47,21 @@ function addToBrowserify(entry) {
             return false;
         }
 
+        process.env.OVERRIDE_LR = 'true';
+
+        setTimeout(() => {
+            process.env.OVERRIDE_LR = 'false';
+        }, 500);
+
         return isDev;
     }
 
     function bundle() {
         return b.bundle()
-            .pipe(gulpPlumber({ errorHandler: gulpNotify.onError(error => `JS Bundle Error: ${error.message}`) }))
+            .on('error', function (err) {
+                console.error(err.stack);
+                this.emit('end');
+            })
             .pipe(vinylSourceStream(name + CONSTS.JS_OUTPUT))
             .pipe(vinylBuffer())
             .pipe(gulpReplace('$$API$$', CONSTS.API))
@@ -69,7 +80,6 @@ function addToBrowserify(entry) {
 
     b.on('update', bundle);
     b.on('log', fancyLog);
-    b.on('error', fancyLog);
 
     return bundle();
 }
