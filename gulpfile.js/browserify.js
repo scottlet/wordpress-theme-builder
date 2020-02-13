@@ -35,10 +35,10 @@ function addToBrowserify(entry) {
     const b = browserify(options);
 
     if (isDev) {
-        b.transform('babelify', { presets: ['@babel/preset-env'], sourceMaps: true });
+        b.transform('babelify', { presets: ['@babel/preset-env', '@babel/preset-react'], sourceMaps: true });
         b.plugin(watchify, { delay: 10 });
     } else {
-        b.transform('babelify', { presets: ['@babel/preset-env'] });
+        b.transform('babelify', { presets: ['@babel/preset-env', '@babel/preset-react'] });
         b.plugin('tinyify', { flat: false });
     }
 
