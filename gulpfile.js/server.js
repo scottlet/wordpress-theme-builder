@@ -4,7 +4,7 @@ const fancyLog = require('fancy-log');
 const { series } = require('gulp');
 const gulpConnect = require('gulp-connect');
 const gulpConnectPHP = require('gulp-connect-php');
-const httpProxyMiddleware = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const httpRewriteMiddleware = require('http-rewrite-middleware');
 const serveStatic = require('serve-static');
 const url = require('url');
@@ -62,7 +62,7 @@ function makeServer(cb) {
                 serveStatic('.run/wp-admin/', staticOptions),
                 serveStatic('.run/wp-content/', staticOptions),
                 serveStatic('.run/wp-includes/', staticOptions),
-                httpProxyMiddleware('/', {
+                createProxyMiddleware('/', {
                     target: url.parse(`http://127.0.0.1:${CONSTS.APPSERVER_PORT}`)
                 }),
                 connectCORS()
