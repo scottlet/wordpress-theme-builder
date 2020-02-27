@@ -84,7 +84,7 @@
     "mocha": "^7.0.1",
     "node-normalize-scss": "^8.0.1",
     "node-sass": "^4.13.1",
-    "npm-check-updates": "^4.0.1",
+    "npm-check-updates": "^4.0.2",
     "postcss-assets": "^5.0.0",
     "postcss-normalize": "^8.0.1",
     "postcss-preset-env": "^6.7.0",
