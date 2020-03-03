@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.3
+version: v1.13.5
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   SNYK-JS-CHOWNR-73502:
@@ -39,4 +39,127 @@ ignore:
     - gulp-unzip > unzipper:
         reason: None given
         expires: '2019-02-22T04:24:26.892Z'
+  SNYK-JS-DOTPROP-543489:
+    - npm-check-updates > update-notifier > configstore > dot-prop:
+        reason: None given
+        expires: '2020-03-23T07:48:32.774Z'
+    - gulp-nodemon > nodemon > update-notifier > configstore > dot-prop:
+        reason: None given
+        expires: '2020-03-23T07:48:32.774Z'
+  SNYK-JS-MARKDOWNIT-459438:
+    - jsdoc > markdown-it:
+        reason: None given
+        expires: '2020-03-23T07:48:32.774Z'
+  SNYK-JS-NODESASS-535497:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.774Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-535498:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.774Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-535502:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.774Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-540956:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.774Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-540958:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-540964:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-540974:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-540978:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-540980:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-540990:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-540992:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-540994:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-540996:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-540998:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-541000:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+  SNYK-JS-NODESASS-541002:
+    - node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
+    - gulp-sass > node-sass:
+        reason: None given
+        expires: '2020-03-23T07:48:32.775Z'
 patch: {}
