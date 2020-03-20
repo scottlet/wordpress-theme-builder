@@ -88,7 +88,7 @@
     "postcss-normalize": "^8.0.1",
     "postcss-preset-env": "^6.7.0",
     "pre-commit-package-version": "^1.0.7",
-    "react": "^16.13.0",
+    "react": "^16.13.1",
     "require-dir": "^1.2.0",
     "snyk": "^1.299.0",
     "tinyify": "^2.5.2",
