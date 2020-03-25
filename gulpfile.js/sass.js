@@ -1,6 +1,7 @@
 const cssMqpacker = require('css-mqpacker');
 const csswring = require('csswring');
 const { src, dest } = require('gulp');
+const gulpChanged = require('gulp-changed');
 const gulpIf = require('gulp-if');
 const gulpLivereload = require('gulp-livereload');
 const { onError } = require('gulp-notify');
@@ -49,12 +50,13 @@ function styles() {
     const processors = [
         cssMqpacker,
         csswring,
-        postcssAssets,
+        postcssAssets({ relative: true }),
         postcssNormalize,
         postcssPresetEnv
     ];
 
     return src(`${CONSTS.SASS_SRC}/**/*.scss`, gulpOptions)
+        .pipe(gulpChanged(CONSTS.CSS_DEST))
         .pipe(gulpPlumber({ errorHandler: onError(error => `Styles Error: ${error.message}`) }))
         .pipe(gulpSassVariables(sassVariables))
         .pipe(gulpSass(sassOptions).on('error', gulpSass.logError))
