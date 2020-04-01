@@ -15,7 +15,10 @@ if (!process.env.LIVERELOAD_PORT) {
 }
 
 try {
-    OPTIONS = require('../src/options.js');
+    const fs = require('fs');
+    const pth = fs.realpathSync('.');
+
+    OPTIONS = require(pth + '/src/options.js');
 } catch (ex) {} //eslint-disable-line
 
 let CONSTS = {
@@ -38,9 +41,9 @@ let CONSTS = {
     GULP_PORT: process.env.GULP_PORT || SERVER_PORT,
     GULP_TASKS: 'gulp-tasks',
     GULPFILE: 'gulpfile.js',
-    IMG_DEST: `${THEME}/img/`,
+    IMG_DEST: `${THEME}img/`,
     IMG_SRC: 'src/images',
-    JS_DEST: `${THEME}/js/`,
+    JS_DEST: `${THEME}js/`,
     JS_OUTPUT: '.min.js',
     JS_SRC: 'src/js/',
     LANGUAGES_SRC: 'src/languages',
@@ -50,8 +53,8 @@ let CONSTS = {
     RUN_DEST: '.run/',
     SASS_SRC: 'src/sass',
     SRC: 'src',
-    STATIC_DEST: `${THEME}/`,
-    TEMPLATES_DEST: `${THEME}/`,
+    STATIC_DEST: `${THEME}`,
+    TEMPLATES_DEST: `${THEME}`,
     TEMPLATES_SRC: 'src/templates',
     TEXT_SRC: 'src/text',
     THEME,

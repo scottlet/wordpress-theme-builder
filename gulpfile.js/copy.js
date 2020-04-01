@@ -106,7 +106,7 @@ function copyBits() {
 
 function copyFavicon() {
     return src(CONSTS.FAVICON,
-        { base: CONSTS.IMG_SRC })
+        { base: CONSTS.IMG_SRC, allowEmpty: true })
         .pipe(dest(CONSTS.CONTENT));
 }
 
