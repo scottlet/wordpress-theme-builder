@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   SNYK-JS-CHOWNR-73502:
@@ -162,4 +162,8 @@ ignore:
     - gulp-sass > node-sass:
         reason: None given
         expires: '2020-03-23T07:48:32.775Z'
-patch: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - gulp-sass > lodash:
+        patched: '2020-05-07T04:06:25.035Z'
