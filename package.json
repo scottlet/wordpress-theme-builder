@@ -54,7 +54,7 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
     "gulp": "^4.0.2",
-    "gulp-brotli": "^2.0.2",
+    "gulp-brotli": "^3.0.0",
     "gulp-changed": "^4.0.2",
     "gulp-connect": "^5.7.0",
     "gulp-connect-php": "1.0.3",
