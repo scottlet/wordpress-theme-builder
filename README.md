@@ -10,7 +10,7 @@ If you don't have homebrew on OSX, visit [brew.sh](http://brew.sh)
 OSX: `brew install node`.
 
 #### PHP
-OSX: `brew install php72 php-code-sniffer`
+OSX: `brew install php php-code-sniffer`
 
 #### MySQL
 OSX: `brew install mysql`
@@ -29,5 +29,8 @@ Optionally, modify ```src/options.js``` to change the name of your theme.
 Then ```gulp``` to run the livereload local server ( http://localhost:9000 )
 
 Fill out the usual WordPress configuration information, log in and change your theme to the Wordpress Theme Builder theme (or whatever you called yours :))
+
+### Building
+`NODE_ENV=production gulp deploy` will build and gzip/brotli compress the assets then zip them into an installable zip in `dist` that you can install using your site's themes uploader.
 
 [![Known Vulnerabilities](https://snyk.io/test/github/scottbert/wordpress-theme-builder/badge.svg?targetFile=package.json)](https://snyk.io/test/github/scottbert/wordpress-theme-builder?targetFile=package.json)
