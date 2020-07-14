@@ -52,7 +52,7 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsdoc": "^29.1.4",
     "eslint-plugin-react": "^7.20.3",
-    "eslint-plugin-react-hooks": "^4.0.7",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "gulp": "^4.0.2",
     "gulp-brotli": "^3.0.0",
     "gulp-changed": "^4.0.2",
