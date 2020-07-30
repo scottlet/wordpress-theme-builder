@@ -1,6 +1,6 @@
 {
   "name": "wordpress-theme-builder",
-  "version": "3.14.5",
+  "version": "3.14.6",
   "keywords": [
     "wordpress",
     "theme",
@@ -51,7 +51,7 @@
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsdoc": "^30.0.3",
-    "eslint-plugin-react": "^7.20.4",
+    "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "gulp": "^4.0.2",
     "gulp-brotli": "^3.0.0",
@@ -90,7 +90,7 @@
     "pre-commit-package-version": "^1.0.7",
     "react": "^16.13.1",
     "require-dir": "^1.2.0",
-    "snyk": "^1.368.1",
+    "snyk": "^1.369.1",
     "tinyify": "^2.5.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
