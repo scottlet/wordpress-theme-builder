@@ -91,7 +91,7 @@
     "pre-commit-package-version": "^1.0.7",
     "react": "^16.14.0",
     "require-dir": "^1.2.0",
-    "snyk": "^1.413.5",
+    "snyk": "^1.419.1",
     "tinyify": "^3.0.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
