@@ -1,5 +1,5 @@
-const fs = require('fs');
-const fancyLog = require('fancy-log');
+import fs from 'fs';
+import fancyLog from 'fancy-log';
 
 function check(cb) {
     if (!fs.existsSync('.run')) {
@@ -16,4 +16,4 @@ function check(cb) {
     cb();
 }
 
-module.exports = check;
+export { check };
