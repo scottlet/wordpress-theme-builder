@@ -1,6 +1,6 @@
-const { src, dest, series } = require('gulp');
-const gulpDownload = require('gulp-download');
-const gulpUnzip = require('gulp-unzip');
+import { src, dest, series } from 'gulp';
+import gulpDownload from 'gulp-download';
+import gulpUnzip from 'gulp-unzip';
 
 const WP_URL = 'https://wordpress.org/latest.zip';
 
@@ -15,4 +15,6 @@ function move() {
         .pipe(dest('.run/'));
 }
 
-module.exports = series(download, move);
+const getwp = series(download, move);
+
+export { getwp };

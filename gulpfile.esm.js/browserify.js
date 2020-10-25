@@ -1,15 +1,16 @@
-const browserify = require('browserify');
-const CONSTS = require('./CONSTS');
-const merge2 = require('merge2');
-const glob = require('glob');
-const gulp = require('gulp');
-const gulpIf = require('gulp-if');
-const gulpLivereload = require('gulp-livereload');
-const gulpReplace = require('gulp-replace');
-const fancyLog = require('fancy-log');
-const vinylBuffer = require('vinyl-buffer');
-const vinylSourceStream = require('vinyl-source-stream');
-const watchify = require('watchify');
+import browserify from 'browserify';
+import merge2 from 'merge2';
+import glob from 'glob';
+import gulp from 'gulp';
+import gulpIf from 'gulp-if';
+import gulpLivereload from 'gulp-livereload';
+import gulpReplace from 'gulp-replace';
+import fancyLog from 'fancy-log';
+import vinylBuffer from 'vinyl-buffer';
+import vinylSourceStream from 'vinyl-source-stream';
+import watchify from 'watchify';
+
+import { CONSTS } from './CONSTS';
 
 const isDev = CONSTS.NODE_ENV !== 'production';
 
@@ -101,4 +102,4 @@ function createJSbundles() {
     return merge2(tasks);
 }
 
-module.exports = createJSbundles;
+export { createJSbundles as browserify };

@@ -1,14 +1,16 @@
-const connectCORS = require('connect-cors');
-const connectLivereload = require('connect-livereload');
-const fancyLog = require('fancy-log');
-const { series } = require('gulp');
-const gulpConnect = require('gulp-connect');
-const gulpConnectPHP = require('gulp-connect-php');
-const { createProxyMiddleware } = require('http-proxy-middleware');
-const httpRewriteMiddleware = require('http-rewrite-middleware');
-const serveStatic = require('serve-static');
-const url = require('url');
-const CONSTS = require('./CONSTS');
+import connectCORS from 'connect-cors';
+import connectLivereload from 'connect-livereload';
+import fancyLog from 'fancy-log';
+import { series } from 'gulp';
+import gulpConnect from 'gulp-connect';
+import gulpConnectPHP from 'gulp-connect-php';
+import { createProxyMiddleware } from 'http-proxy-middleware';
+import httpRewriteMiddleware from 'http-rewrite-middleware';
+import serveStatic from 'serve-static';
+import url from 'url';
+import { CONSTS } from './CONSTS';
+
+const { APPSERVER_PORT, RUN_DEST, GULP_PORT, LIVERELOAD_PORT } = CONSTS;
 
 const urlrewrites = [
     {
@@ -24,15 +26,18 @@ const staticOptions = {
 
 function runPHP(cb) {
     gulpConnectPHP.server({
-        port: CONSTS.APPSERVER_PORT,
+        port: APPSERVER_PORT,
         hostname: '0.0.0.0',
-        base: CONSTS.RUN_DEST,
+        base: RUN_DEST,
         debug: false,
         configCallback: function _configCallback(type, collection) {
             if (type === gulpConnectPHP.OPTIONS_SPAWN_OBJ) {
-                collection.env = Object.assign({
-                    APPLICATION_ENV: 'development'
-                }, process.env);
+                collection.env = Object.assign(
+                    {
+                        APPLICATION_ENV: 'development'
+                    },
+                    process.env
+                );
                 cb();
 
                 return collection;
@@ -46,7 +51,7 @@ function runPHP(cb) {
 }
 
 function makeServer(cb) {
-    const gulpPort = CONSTS.GULP_PORT;
+    const gulpPort = GULP_PORT;
 
     gulpConnect.server({
         root: '.run',
@@ -56,14 +61,14 @@ function makeServer(cb) {
         middleware: () => {
             return [
                 connectLivereload({
-                    port: CONSTS.LIVERELOAD_PORT
+                    port: LIVERELOAD_PORT
                 }),
                 httpRewriteMiddleware.getMiddleware(urlrewrites),
                 serveStatic('.run/wp-admin/', staticOptions),
                 serveStatic('.run/wp-content/', staticOptions),
                 serveStatic('.run/wp-includes/', staticOptions),
                 createProxyMiddleware('/', {
-                    target: url.parse(`http://127.0.0.1:${CONSTS.APPSERVER_PORT}`)
+                    target: url.parse(`http://127.0.0.1:${APPSERVER_PORT}`)
                 }),
                 connectCORS()
             ];
@@ -74,4 +79,6 @@ function makeServer(cb) {
     fancyLog(`server http://127.0.0.1:${gulpPort}`);
 }
 
-module.exports = series(runPHP, makeServer);
+const server = series(runPHP, makeServer);
+
+export { server };
