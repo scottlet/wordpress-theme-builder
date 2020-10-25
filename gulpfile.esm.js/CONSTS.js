@@ -40,7 +40,7 @@ let CONSTS = {
     FONT_SRC: 'src/fonts',
     GULP_PORT: process.env.GULP_PORT || SERVER_PORT,
     GULP_TASKS: 'gulp-tasks',
-    GULPFILE: 'gulpfile.js',
+    GULPFILE: 'gulpfile.esm.js',
     IMG_DEST: `${THEME}img/`,
     IMG_SRC: 'src/images',
     JS_DEST: `${THEME}js/`,
@@ -68,4 +68,4 @@ let CONSTS = {
 
 CONSTS = Object.assign(CONSTS, OPTIONS || {});
 
-module.exports = CONSTS;
+export { CONSTS };
