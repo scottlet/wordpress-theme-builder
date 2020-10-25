@@ -34,5 +34,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
+      - run: git submodule init
+      - run: git submodule update
       - run: npm run get-wordpress
       - run: npm run deploy
