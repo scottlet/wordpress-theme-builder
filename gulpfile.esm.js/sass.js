@@ -10,7 +10,6 @@ import gulpSassVariables from 'gulp-sass-variables';
 import gulpSass from 'gulp-sass';
 import postcssAssets from 'postcss-assets';
 import postcssCombineMediaQuery from 'postcss-combine-media-query';
-import postcssSortMediaQueries from 'postcss-sort-media-queries';
 import cssnano from 'cssnano';
 import postcssNormalize from 'postcss-normalize';
 import postcssPresetEnv from 'postcss-preset-env';
@@ -56,14 +55,9 @@ function rename(path) {
         .replace('$version', VERSION)}.min`;
 }
 
-gulpSass.compiler = require('node-sass');
-
 function sass() {
     const processors = [
         postcssCombineMediaQuery,
-        postcssSortMediaQueries({
-            sort: 'desktop-first'
-        }),
         cssnano,
         postcssAssets,
         postcssNormalize,
