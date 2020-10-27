@@ -14,7 +14,8 @@ import cssnano from 'cssnano';
 import postcssNormalize from 'postcss-normalize';
 import postcssPresetEnv from 'postcss-preset-env';
 import { CONSTS } from './CONSTS';
-import nodeSass from 'node-sass';
+import sass from 'sass';
+import Fiber from 'fibers';
 
 const {
     NODE_ENV,
@@ -30,12 +31,13 @@ const isDev = NODE_ENV !== 'production';
 
 const sassOptions = {
     errLogToConsole: true,
+    fiber: Fiber,
     includePaths: []
 };
 
 const gulpOptions = isDev ? { sourcemaps: true } : {};
 
-gulpSass.compiler = nodeSass;
+gulpSass.compiler = sass;
 
 function buildSassVariables(breakpoints) {
     const c = {};
@@ -55,7 +57,7 @@ function rename(path) {
         .replace('$version', VERSION)}.min`;
 }
 
-function sass() {
+function compileSass() {
     const processors = [
         postcssCombineMediaQuery,
         cssnano,
@@ -79,4 +81,4 @@ function sass() {
         .pipe(gulpIf(isDev, gulpLivereload({ port: LIVERELOAD_PORT })));
 }
 
-export { sass };
+export { compileSass as sass };
