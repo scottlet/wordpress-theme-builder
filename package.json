@@ -87,7 +87,7 @@
     "http-rewrite-middleware": "^0.1.6",
     "jsdoc": "^3.6.6",
     "merge2": "^1.4.1",
-    "mocha": "^8.2.0",
+    "mocha": "^8.2.1",
     "node-normalize-scss": "^8.1.2",
     "node-sass": "^4.14.1",
     "postcss": "^8.1.4",
