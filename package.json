@@ -98,7 +98,7 @@
     "postcss": "^8.1.14",
     "postcss-assets": "^5.0.0",
     "postcss-combine-media-query": "^1.0.1",
-    "postcss-import": "^13.0.0",
+    "postcss-import": "^14.0.0",
     "postcss-normalize": "^9.0.0",
     "postcss-preset-env": "^6.7.0",
     "postcss-sort-media-queries": "^2.2.14",
