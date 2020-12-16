@@ -93,7 +93,7 @@
     "jsdoc": "^3.6.6",
     "merge2": "^1.4.1",
     "node-normalize-scss": "^8.1.2",
-    "node-notifier": "^8.0.0",
+    "node-notifier": "^8.0.1",
     "node-sass": "^5.0.0",
     "postcss": "^8.1.14",
     "postcss-assets": "^5.0.0",
