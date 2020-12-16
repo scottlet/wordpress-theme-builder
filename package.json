@@ -106,7 +106,7 @@
     "react": "^17.0.1",
     "require-dir": "^1.2.0",
     "sass": "^1.30.0",
-    "snyk": "^1.434.2",
+    "snyk": "^1.437.1",
     "tinyify": "^3.0.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
