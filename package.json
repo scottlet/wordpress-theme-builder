@@ -95,7 +95,7 @@
     "node-normalize-scss": "^8.1.2",
     "node-notifier": "^8.0.0",
     "node-sass": "^5.0.0",
-    "postcss": "^8.1.14",
+    "postcss": "^8.2.5",
     "postcss-assets": "^5.0.0",
     "postcss-combine-media-query": "^1.0.1",
     "postcss-import": "^13.0.0",
