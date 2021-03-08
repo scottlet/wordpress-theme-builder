@@ -100,7 +100,7 @@
     "postcss-import": "^14.0.0",
     "postcss-normalize": "^9.0.0",
     "postcss-preset-env": "^6.7.0",
-    "postcss-sort-media-queries": "^3.4.3",
+    "postcss-sort-media-queries": "^3.6.5",
     "pre-commit-package-version": "^1.0.7",
     "react": "^17.0.1",
     "require-dir": "^1.2.0",
