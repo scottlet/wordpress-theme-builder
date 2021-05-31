@@ -53,7 +53,7 @@
     "connect-cors": "^0.5.6",
     "connect-livereload": "^0.6.1",
     "cssnano": "^5.0.4",
-    "cssnano-preset-advanced": "^5.1.1",
+    "cssnano-preset-advanced": "^5.1.2",
     "cssnano-preset-lite": "^2.0.1",
     "del": "^6.0.0",
     "eslint": "^7.27.0",
