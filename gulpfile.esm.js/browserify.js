@@ -1,7 +1,7 @@
 import { dest } from 'gulp';
 import browserify from 'browserify';
 import fancyLog from 'fancy-log';
-import glob from 'glob';
+import { sync } from 'glob';
 import gulpIf from 'gulp-if';
 import gulpLivereload from 'gulp-livereload';
 import gulpReplace from 'gulp-replace';
@@ -29,7 +29,7 @@ const {
 
 const isDev = NODE_ENV !== 'production';
 
-const entries = glob.sync(`${JS_SRC}*.js`);
+const entries = sync(`${JS_SRC}*.js`);
 
 const plugins = [
   [

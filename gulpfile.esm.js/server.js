@@ -7,7 +7,6 @@ import gulpConnect from 'gulp-connect';
 import gulpConnectPHP from 'gulp-connect-php';
 import httpRewriteMiddleware from 'http-rewrite-middleware';
 import serveStatic from 'serve-static';
-import url from 'url';
 
 import { CONSTS } from './CONSTS';
 
