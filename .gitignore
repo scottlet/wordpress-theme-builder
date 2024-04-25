@@ -38,3 +38,4 @@ dist/
 .run/
 contrib/
 .env
+.vscode

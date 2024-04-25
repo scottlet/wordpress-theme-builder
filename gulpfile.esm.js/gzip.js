@@ -4,9 +4,9 @@ import gulpGZip from 'gulp-gzip';
 const { BUILD_DEST } = CONSTS;
 
 function gzip() {
-    return src(`${BUILD_DEST}/**/*.{css,svg,js,html}`)
-        .pipe(gulpGZip({ gzipOptions: { level: 9 } }))
-        .pipe(dest(BUILD_DEST));
+  return src(`${BUILD_DEST}/**/*.{css,svg,js,html}`)
+    .pipe(gulpGZip({ gzipOptions: { level: 9 } }))
+    .pipe(dest(BUILD_DEST));
 }
 
 export { gzip };
