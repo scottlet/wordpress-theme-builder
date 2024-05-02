@@ -82,7 +82,7 @@
     "gulp-zip": "^5.0.2",
     "http-proxy-middleware": "^1.0.6",
     "http-rewrite-middleware": "^0.1.6",
-    "jsdoc": "^3.6.6",
+    "jsdoc": "^4.0.3",
     "merge2": "^1.4.1",
     "mocha": "^6.2.3",
     "node-normalize-scss": "^8.1.2",
