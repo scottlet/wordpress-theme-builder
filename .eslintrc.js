@@ -39,7 +39,7 @@ module.exports = {
     'eol-last': 2,
     'func-call-spacing': [2, 'never'],
     'func-style': [2, 'declaration'],
-    indent: [2, 2],
+    indent: [2, 2, { SwitchCase: 0 }],
     'lines-around-directive': 2,
     'max-len': [1, 120],
     'new-cap': 0,

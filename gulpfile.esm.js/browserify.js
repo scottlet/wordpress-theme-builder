@@ -115,7 +115,7 @@ function addToBrowserify(entry) {
         .pipe(gulpReplace('$$tablet$$', `${BREAKPOINTS.TABLET}`))
         .pipe(gulpReplace('$$smalldesktop$$', `${BREAKPOINTS.SMALL_DESKTOP}`))
         // @ts-ignore
-        .pipe(gulpTerser({}, minify))
+        .pipe(gulpIf(!isDev, gulpTerser({}, minify)))
         .pipe(dest(JS_DEST))
         .pipe(
           gulpIf(
