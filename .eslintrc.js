@@ -3,9 +3,18 @@ module.exports = {
     node: true,
     es6: true
   },
-  plugins: ['import'],
+  plugins: ['jsdoc', 'import', 'prettier', 'react', 'react-hooks'],
+
   settings: {
-    'import/resolver': 'node'
+    'import/resolver': {
+      alias: {
+        map: [['~', './js/modules']]
+      },
+      node: true
+    },
+    react: {
+      version: 'detect'
+    }
   },
   extends: [
     'eslint:recommended',
@@ -39,7 +48,7 @@ module.exports = {
     'eol-last': 2,
     'func-call-spacing': [2, 'never'],
     'func-style': [2, 'declaration'],
-    indent: [2, 2],
+    indent: [2, 2, { SwitchCase: 0 }],
     'lines-around-directive': 2,
     'max-len': [1, 120],
     'new-cap': 0,

@@ -43,7 +43,6 @@ const DEFAULT_CONSTS = {
   FAVICON: 'src/images/favicon.ico',
   FONT_SRC: 'src/fonts',
   GULP_PORT: parseInt(process.env.GULP_PORT || '') || SERVER_PORT,
-  GULP_TASKS: 'gulp-tasks',
   GULPFILE: 'gulpfile.esm.js',
   IMG_DEST: `${THEME}img/`,
   IMG_SRC: 'src/images',

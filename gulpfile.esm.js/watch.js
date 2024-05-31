@@ -2,17 +2,13 @@ import { copyConfig, copyCssLR, copyViews, copyStaticFiles } from './copy';
 import { parallel, watch } from 'gulp';
 import fancyLog from 'fancy-log';
 import { listen, reload } from 'gulp-livereload';
-import { eslint } from './eslint';
 import { sass } from './sass';
 import { CONSTS } from './CONSTS';
 
 const {
   AUDIO_SRC,
   FONT_SRC,
-  GULP_TASKS,
-  GULPFILE,
   IMG_SRC,
-  JS_SRC,
   LIVERELOAD_PORT,
   SASS_SRC,
   TEMPLATES_DEST,
@@ -44,15 +40,11 @@ function watchers(cb) {
   const watchCss = watch(WP_CSS_SRC, parallel(copyCssLR));
   const watchConfig = watch(WPCONFIG_SRC, parallel(copyConfig));
   const watchTemplates = watch(`${TEMPLATES_SRC}/**/*`, copyViews);
-  const watchJs = watch(
-    [GULPFILE, `${GULP_TASKS}/**/*.js`, `${JS_SRC}/**/*.js`],
-    parallel(eslint)
-  );
 
   [
     watchCopiedTemplates,
     watchPublic,
-    watchJs,
+
     watchSass,
     watchCss,
     watchConfig,
