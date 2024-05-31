@@ -44,6 +44,10 @@ const plugins = [
   ]
 ];
 
+/**
+ * @param {string} entry entry file string from glob.
+ * @returns {NodeJS.ReadWriteStream} stream
+ */
 function addToBrowserify(entry) {
   const options = {
     entries: [entry],
@@ -86,6 +90,11 @@ function addToBrowserify(entry) {
     b.transform('envify');
   }
 
+  /**
+   * Executes a logic to determine if a line return is needed.
+   *
+   * @return {boolean} Returns true if a line return is needed, false otherwise.
+   */
   function doLR() {
     if (process.env.OVERRIDE_LR === 'true') {
       return false;

@@ -3,9 +3,18 @@ module.exports = {
     node: true,
     es6: true
   },
-  plugins: ['import'],
+  plugins: ['jsdoc', 'import', 'prettier', 'react', 'react-hooks'],
+
   settings: {
-    'import/resolver': 'node'
+    'import/resolver': {
+      alias: {
+        map: [['~', './js/modules']]
+      },
+      node: true
+    },
+    react: {
+      version: 'detect'
+    }
   },
   extends: [
     'eslint:recommended',
